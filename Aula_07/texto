@@ -1,0 +1,112 @@
+def contar_caracteres(texto):
+    return len(texto)
+
+def transformar_em_maiusculo(texto):
+    return texto.upper()
+
+def transformar_em_minusculo(texto):
+    return texto.lower()
+
+
+
+# import caracteres
+# print(caracteres.contar_caracteres("Joao"))
+# print(caracteres.transformar_em_maiusculo("Joao"))
+# print(caracteres.transformar_em_minusculo("Joao"))
+
+# from caracteres import contar_caracteres
+# print(contar_caracteres("Maria"))
+
+
+# from caracteres import contar_caracteres , transformar_em_minusculo
+# print(contar_caracteres("Maria"))
+# print(transformar_em_minusculo("Maria"))
+
+
+# from caracteres import *
+# print(contar_caracteres("Joao"))
+# print(transformar_em_maiusculo("Joao"))
+# print(transformar_em_minusculo("Joao"))
+
+# import caracteres as crt
+# print(crt.contar_caracteres("José"))
+
+
+
+
+operacoes.py
+
+def somar(numero1,numero2):
+    return numero1 + numero2
+
+def subtrair(numero1,numero2):
+    return numero1 - numero2
+
+def multiplicar(numero1,numero2):
+    return numero1 * numero2
+
+def dividir(numero1,numero2):
+    return numero1 / numero2
+
+
+
+
+main.py
+
+from operacoes import *
+
+numero1 = float(input("Digite o primeiro valor: "))
+numero2 = float(input("Digite o segundo valor: "))
+
+while True:
+    menu = int(input("""
+            Escolha uma operação:
+            1 - Somar
+            2 - Subtrair
+            3 - Multiplcar
+            4 - Dividir
+            0 - Sair
+    """))
+
+    match menu:
+        case 1:
+            print(f"A soma dos valores é {somar(numero1, numero2)}")
+        case 2:
+            print(f"A subtração dos valores é {subtrair(numero1, numero2)}")
+        case 3:
+            print(f"A multiplicação dos valores é {multiplicar(numero1, numero2)}")
+        case 4: 
+            print(f"A dividir dos valores é {dividir(numero1, numero2)}")
+        case 0:
+            break
+
+
+
+jogo da advinhação
+main.py
+from controles import *
+
+aletorio = gerar_numero()
+
+while True:
+    escolha = int(input("Digite um número entre 0 e 100: "))
+    resposta = compara_numeros(aletorio, escolha)
+    print(resposta)
+
+    if "Parabéns" in resposta :
+        break
+
+
+from random import randint
+
+def gerar_numero():
+    return randint(0,100)
+
+def compara_numeros(numero_aleatorio, numero_do_usuario):
+    if numero_aleatorio > numero_do_usuario:
+        return "Digite um número maior" 
+    elif numero_aleatorio < numero_do_usuario:
+        return "Digite um número menor"
+    else:
+        return f"Parabéns meu fi, você acertou o número {numero_aleatorio}"
+
